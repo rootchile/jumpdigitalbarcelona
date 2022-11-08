@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+ssl/*
+.env
+tmp/*
+odc-reports/
+coverage/
+postgres_data/
+.docker
