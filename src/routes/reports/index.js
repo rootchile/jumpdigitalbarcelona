@@ -24,9 +24,9 @@ router.get("/reports/companies", async (req, res) => {
         res.status(OK).send(companyList);
 
     } catch (e) {
-        res.status(INTERNAL_SERVER_ERROR).send({ error: "Something went wrong trying to fetch results"});
+       return res.status(INTERNAL_SERVER_ERROR).send({ error: "Something went wrong trying to fetch results"});
     }
-    res.status(BAD_REQUEST).send();
+    return res.status(BAD_REQUEST).send();
 });
 
 
@@ -34,7 +34,7 @@ router.get("/reports/summary", async (_req, res) => {
     let countCompaniesByIndustry;
     let countCompaniesBySize;
     let countCompaniesByFoundedYear;
-    
+
     try {
 
         countCompaniesByIndustry = await companyRepository.getCompaniesByIndustry();
@@ -42,14 +42,14 @@ router.get("/reports/summary", async (_req, res) => {
         countCompaniesByFoundedYear = await companyRepository.getCompaniesByFoundedYear();
 
     } catch (e) {
-        res.status(INTERNAL_SERVER_ERROR).send({ error: "Something went wrong trying to fetch summary"});
+        return res.status(INTERNAL_SERVER_ERROR).send({ error: "Something went wrong trying to fetch summary"});
     }
     
 
-    res.status(OK).send({ 
+    return res.status(OK).send({ 
         companiesByIndustry: countCompaniesByIndustry,
         companiesBySize: countCompaniesBySize,
-        countCompaniesByFoundedYear: countCompaniesByFoundedYear,
+        companiesByFoundedYear: countCompaniesByFoundedYear,
      })
 });
 
