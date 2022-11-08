@@ -78,7 +78,7 @@ describe("Reports", () => {
                 companiesByIndustry: { ... industry },
                 companiesBySize: { ...size},
                 companiesByFoundedYear: { ...founded}
-            }))
+            }));
 
         });
     });

@@ -50,7 +50,7 @@ router.get("/reports/summary", async (_req, res) => {
         companiesByIndustry: countCompaniesByIndustry,
         companiesBySize: countCompaniesBySize,
         companiesByFoundedYear: countCompaniesByFoundedYear,
-     })
+     });
 });
 
 module.exports = router;
